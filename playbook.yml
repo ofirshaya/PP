@@ -1,7 +1,7 @@
 ---
 
 - name: connect, copy and run docker-compose ec2
-  hosts: localhost
+  hosts: servers
   become: yes
   become_method: sudo
   gather_facts: False
