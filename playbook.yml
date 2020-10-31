@@ -1,0 +1,15 @@
+---
+
+- name: connect, copy and run docker-compose ec2
+  hosts: localhost
+  become: yes
+  become_method: sudo
+  gather_facts: False
+  
+  tasks:
+    - name: connect to ec2 and copy file
+      copy:
+        src: "/pp/"
+        dest: "/tmp/"
+    - name: run docker compose
+      shell: "docker-compose up -f /tmp/docker-compose.yml -d"
